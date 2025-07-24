@@ -1,0 +1,174 @@
+{
+  "series": {
+    "Livestream": {
+      "description": "Main Active Inference livestream series",
+      "naming_pattern": "livestream_{number}_{title}",
+      "quality": "high",
+      "model": "small",
+      "special_processing": {
+        "speaker_detection": true,
+        "auto_summarize": false
+      }
+    },
+    "GuestStream": {
+      "description": "Guest presentations and interviews",
+      "naming_pattern": "gueststream_{number}_{guest}_{title}",
+      "quality": "high",
+      "model": "small",
+      "special_processing": {
+        "speaker_detection": true,
+        "auto_summarize": true,
+        "extract_guest_info": true
+      }
+    },
+    "ModelStream": {
+      "description": "Technical model demonstrations",
+      "naming_pattern": "modelstream_{number}_{title}",
+      "quality": "high",
+      "model": "medium",
+      "special_processing": {
+        "technical_terms": true,
+        "code_detection": true,
+        "auto_summarize": true
+      }
+    },
+    "MathStream": {
+      "description": "Mathematical content and theory",
+      "naming_pattern": "mathstream_{number}_{title}",
+      "quality": "high",
+      "model": "medium",
+      "special_processing": {
+        "mathematical_notation": true,
+        "formula_detection": true
+      }
+    },
+    "ArtStream": {
+      "description": "Art and creative content analysis",
+      "naming_pattern": "artstream_{number}_{title}",
+      "quality": "standard",
+      "model": "small"
+    },
+    "MathArtStream": {
+      "description": "Mathematical art explorations",
+      "naming_pattern": "mathartstream_{number}_{title}",
+      "quality": "standard",
+      "model": "small"
+    },
+    "Roundtable": {
+      "description": "Quarterly roundtable discussions",
+      "naming_pattern": "roundtable_{year}_{quarter}",
+      "quality": "high",
+      "model": "small",
+      "special_processing": {
+        "speaker_detection": true,
+        "segment_detection": true
+      }
+    },
+    "BookStream": {
+      "description": "Book reading and discussion sessions",
+      "naming_pattern": "bookstream_{number}_{title}",
+      "quality": "standard",
+      "model": "small"
+    },
+    "OrgStream": {
+      "description": "Organizational and governance topics",
+      "naming_pattern": "orgstream_{number}_{title}",
+      "quality": "standard",
+      "model": "small"
+    },
+    "Insights": {
+      "description": "Insight series with key researchers",
+      "naming_pattern": "insights_{number}_{guest}",
+      "quality": "high",
+      "model": "small",
+      "special_processing": {
+        "extract_guest_info": true,
+        "auto_summarize": true
+      }
+    },
+    "Twitter Spaces": {
+      "description": "Twitter Spaces recordings",
+      "naming_pattern": "twitter_spaces_{number}_{title}",
+      "quality": "standard",
+      "model": "small"
+    },
+    "Applied Active Inference Symposium": {
+      "description": "Annual symposium presentations",
+      "naming_pattern": "symposium_{year}_{title}",
+      "quality": "high",
+      "model": "medium",
+      "special_processing": {
+        "speaker_detection": true,
+        "auto_summarize": true
+      }
+    },
+    "ReviewStream": {
+      "description": "Annual review sessions",
+      "naming_pattern": "review_{year}",
+      "quality": "standard",
+      "model": "small"
+    },
+    "Parr, Pezzulo, Friston 2022 Textbook": {
+      "description": "Textbook study group sessions",
+      "naming_pattern": "textbook_{cohort}_{chapter}",
+      "quality": "standard",
+      "model": "small",
+      "special_processing": {
+        "academic_content": true
+      }
+    },
+    "Chris Fields ~ Physics As Information Processing ~ 2023": {
+      "description": "Chris Fields course series",
+      "naming_pattern": "fields_course_{lecture}",
+      "quality": "high",
+      "model": "medium",
+      "special_processing": {
+        "academic_content": true,
+        "technical_terms": true
+      }
+    },
+    "Active Inference for the Social Sciences": {
+      "description": "Social sciences course series",
+      "naming_pattern": "social_sciences_{lecture}",
+      "quality": "standard",
+      "model": "small",
+      "special_processing": {
+        "academic_content": true
+      }
+    },
+    "Active InferAnt Stream": {
+      "description": "Technical implementation streams",
+      "naming_pattern": "inferant_{number}_{title}",
+      "quality": "standard",
+      "model": "small",
+      "special_processing": {
+        "code_detection": true,
+        "technical_terms": true
+      }
+    },
+    "MorphStream": {
+      "description": "Morphogenesis and development topics",
+      "naming_pattern": "morphstream_{number}_{title}",
+      "quality": "standard",
+      "model": "small"
+    }
+  },
+  "default_settings": {
+    "quality": "standard",
+    "model": "small",
+    "naming_pattern": "{series}_{number}_{title}",
+    "special_processing": {}
+  },
+  "quality_settings": {
+    "high": {
+      "model_preference": "medium",
+      "post_processing": true,
+      "manual_review": true
+    },
+    "standard": {
+      "model_preference": "small",
+      "post_processing": false,
+      "manual_review": false
+    }
+  }
+} 

@@ -18,7 +18,29 @@ Speaker identification ("diarization"), summarization and translation will proba
 
 ## installation
 
-NEW: If you have Nix installed or are running on NixOS, just symlink `yt-transcriber`, `summarize`
+### Quick Setup (Recommended)
+
+For Ubuntu/Debian systems, use the automated setup script:
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd yt-transcriber
+
+# Run the setup script
+./setup.sh
+```
+
+The setup script will:
+- Install all required dependencies (FFmpeg 7+, Python 3.12, pyenv)
+- Set up the Python virtual environment with all required packages
+- Download the Whisper model
+- Create symlinks for easy access
+- Test the installation
+
+### Manual Installation
+
+If you have Nix installed or are running on NixOS, just symlink `yt-transcriber`, `summarize`
 and `translate` to any directory (usually `~/bin` or `XDG_BIN_HOME` which is usually `~/.local/bin`)
 in your `PATH` and you're good to go (the last two require OPENAI_API_KEY to be
 defined in your environment). The shell script will automatically procure all dependencies
@@ -41,39 +63,83 @@ and XDG_CACHE_HOME defaults to `~/.cache` if not set.
 The Whisper model will be downloaded to `$XDG_CACHE_HOME/yt-transcriber/.whisper`.
 
 the `flake.nix` file manages all deps, so just `nix develop` when in there.
-`./test_flake.sh` tests whether everything's set up correctly.
 `./yt_transcriber TEST` tests the app itself.
 No app keys needed, Whisper runs locally.
-Setup was only tested on Mac with a Nix install thus far. Will add tests for it working without Nix next.
 
-## example usage
+## usage
 
-`./yt-transcriber` by itself will list options and usage (such as `-m modelsize`).
-
-By default the app uses the `small` (second smallest) model; I recommend using at least `small` for better transcription results without costing too much extra processing time. The options are: `base`, `small`, `medium`, `large`, `large-v2`
-
-Transcript will be sent to stdout, so you can redirect it to a file or pipe it to another program such as the provided `./summarize[--markdown]` or `./translate [language]` scripts (see below).
-
-If you set the `DEBUG` env var (to anything), you'll get additional logging/debug info to stderr.
+### Individual Video Transcription
 
 ```bash
-# (when in the project directory)
-./yt-transcriber -m medium "https://www.youtube.com/watch?v=<youtube_id>" > ~/Documents/transcript.txt
+# Transcribe a single video
+./core/yt-transcriber "https://www.youtube.com/watch?v=<youtube_id>"
+
+# Use different Whisper model
+./core/yt-transcriber -m medium "https://www.youtube.com/watch?v=<youtube_id>"
+
+# Pipe to summarization and translation
+./core/yt-transcriber "video.mp4" | ./core/summarize | ./core/translate Spanish
 ```
 
+### Batch Processing
+
+Process all videos from the CSV file:
 ```bash
-# (when in the project directory)
-./yt-transcriber -m small "/path/to/video/or/audio/file.mp4" | ./summarize | ./translate Süddeutsch > ~/Documents/bavarian_german_summary.txt
+# Process all videos
+./scripts/batch_transcribe.sh
+
+# Process only specific series
+./scripts/batch_transcribe.sh -s "Livestream"
+
+# Dry run to see what would be processed
+./scripts/batch_transcribe.sh -n -s "GuestStream"
+
+# Resume from specific video
+./scripts/batch_transcribe.sh -r "Livestream #025.0"
+
+# Check processing status
+./scripts/batch_transcribe.sh --status
 ```
 
+### Generate Searchable Index
+
+Create an HTML index of all transcripts:
 ```bash
-# (when yt-transcriber is on PATH)
-yt-transcriber "https://www.youtube.com/watch?v=<youtube_id>" | summarize --markdown | glow
+python3 scripts/generate_index.py
+# Opens in browser: output/index.html
 ```
 
-For a full debug run try this:
+### Repository Structure
+
+After reorganization, the repository follows this structure:
+- `core/` - Main transcription tools (yt-transcriber, summarize, translate)
+- `scripts/` - Batch processing and automation scripts
+- `data/` - All video metadata, transcripts, summaries, and translations
+- `config/` - Configuration files for series and transcription settings
+- `output/` - Generated indexes and reports
+- `docs/` - Comprehensive documentation
+
+### Model Options
+
+By default the app uses the `small` model. Available options:
+- `base` - Fastest, lower accuracy
+- `small` - Good balance (recommended)
+- `medium` - Better accuracy, slower
+- `large` - Best accuracy, much slower
+- `large-v2` - Latest improvements
+
+### Advanced Usage
 
 ```bash
-# (when in the project directory)
-DEBUG=1 ./yt-transcriber -m small "https://www.youtube.com/watch?v=<youtube_id>" | tee last_transcript.txt | ./summarize
+# Debug mode
+DEBUG=1 ./core/yt-transcriber -m small "video_url"
+
+# Force reprocess existing transcripts
+./scripts/batch_transcribe.sh -f -s "MathStream"
+
+# Process videos from specific date
+./scripts/batch_transcribe.sh -d "2023-01-01"
+
+# Custom parallel processing
+./scripts/batch_transcribe.sh -j 5 -s "ModelStream"
 ```

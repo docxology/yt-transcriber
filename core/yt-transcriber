@@ -281,6 +281,9 @@ sanitize_youtube_url() {
     else
       return 1
     fi
+  elif [[ $url =~ ^https?://[^/]*youtube\.com/live/([^?&#]+) ]]; then
+    # Handle /live/ URLs
+    clean_url="https://youtube.com/watch?v=${BASH_REMATCH[1]}"
   else
     return 1
   fi
@@ -292,8 +295,11 @@ sanitize_youtube_url() {
 get_youtube_id() {
   local url="$1"
 
-  # We expect a clean URL in the form https://youtube.com/watch?v=ID
-  if [[ $url =~ [?\&]v=([^&#]+) ]]; then
+  # Handle different YouTube URL formats
+  if [[ $url =~ [?\&]v=([^&#]+) ]] || \
+     [[ $url =~ youtu\.be/([a-zA-Z0-9_-]+) ]] || \
+     [[ $url =~ /live/([a-zA-Z0-9_-]+) ]] || \
+     [[ $url =~ youtube\.com/live/([a-zA-Z0-9_-]+) ]]; then
     echo "${BASH_REMATCH[1]}"
     return 0
   fi
@@ -519,6 +525,7 @@ import torch
 from datetime import datetime
 import psutil
 import os
+import threading
 
 # Try different import approaches for whisper
 try:
@@ -543,6 +550,23 @@ def format_duration(seconds):
     if hours > 0:
         return f"{hours}:{minutes:02d}:{seconds:02d}"
     return f"{minutes}:{seconds:02d}"
+
+def progress_spinner(stop_event, message="Processing"):
+    """Simple text-based progress indicator"""
+    spinner_chars = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧']
+    i = 0
+    while not stop_event.is_set():
+        print(f"\r{message}... {spinner_chars[i % len(spinner_chars)]}", end='', file=sys.stderr, flush=True)
+        time.sleep(0.1)
+        i += 1
+    print(f"\r{message}... ✓", file=sys.stderr, flush=True)
+
+def show_progress_bar(current, total, prefix='Progress', suffix='Complete', length=50):
+    """Display a progress bar"""
+    percent = "{0:.1f}".format(100 * (current / float(total)))
+    filled_length = int(length * current // total)
+    bar = '█' * filled_length + '-' * (length - filled_length)
+    print(f'\r{prefix} |{bar}| {percent}% {suffix}', end='', file=sys.stderr, flush=True)
 
 def transcribe(audio_file, output_file, model_name, metadata_file):
     # Filter out warnings
@@ -599,24 +623,89 @@ def transcribe(audio_file, output_file, model_name, metadata_file):
     model_size = os.path.getsize(os.path.join(cache_dir, f"{model_name}.pt")) / 1024 / 1024
     print(f"Model size: {model_size:.1f}MB", file=sys.stderr)
 
-    # Load model and transcribe
-    print(f"Loading {model_name} model into {humanized_device}...", file=sys.stderr)
-    model = whisper.load_model(model_name)
-    print(f"Model loaded, transcribing...", file=sys.stderr)
+    # Get audio duration for progress estimation
+    try:
+        import subprocess
+        duration_result = subprocess.run(['ffprobe', '-v', 'quiet', '-show_entries', 
+                                        'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 
+                                        audio_file], capture_output=True, text=True)
+        audio_duration = float(duration_result.stdout.strip()) if duration_result.returncode == 0 else 0
+        print(f"Audio duration: {format_duration(audio_duration)}", file=sys.stderr)
+    except:
+        audio_duration = 0
+
+    # Load model with progress indication
+    print(f"\nLoading {model_name} model into {humanized_device}...", file=sys.stderr)
+    
+    # Start spinner for model loading
+    stop_spinner = threading.Event()
+    spinner_thread = threading.Thread(target=progress_spinner, args=(stop_spinner, "Loading model"))
+    spinner_thread.start()
+    
+    try:
+        model = whisper.load_model(model_name)
+        stop_spinner.set()
+        spinner_thread.join()
+        print(f"Model loaded successfully!", file=sys.stderr)
+    except Exception as e:
+        stop_spinner.set()
+        spinner_thread.join()
+        print(f"Error loading model: {e}", file=sys.stderr)
+        raise
 
     # Time the transcription
     start_time = time.time()
+    
+    print(f"\nStarting transcription...", file=sys.stderr)
+    if audio_duration > 0:
+        # Estimate processing time (rough approximation based on model and CPU)
+        estimated_time = audio_duration * (2.0 if humanized_device == "GPU" else 4.0)  # rough multiplier
+        print(f"Estimated processing time: {format_duration(estimated_time)}", file=sys.stderr)
+    
+    # Start progress indication during transcription
+    print("", file=sys.stderr)  # New line for progress updates
+    
+    # Custom progress callback for whisper
+    def progress_callback(seek, total_duration):
+        if total_duration > 0:
+            progress = min(seek / total_duration, 1.0)
+            show_progress_bar(progress * 100, 100, 'Transcribing', f'({format_duration(seek)}/{format_duration(total_duration)})')
 
-    result = model.transcribe(
-        audio_file,
-        fp16=False
-    )
+    # Start spinner for transcription (since we can't easily hook into whisper's internal progress)
+    stop_transcription_spinner = threading.Event()
+    transcription_spinner_thread = threading.Thread(target=progress_spinner, args=(stop_transcription_spinner, "Transcribing audio"))
+    transcription_spinner_thread.start()
+
+    try:
+        result = model.transcribe(
+            audio_file,
+            fp16=False,
+            verbose=False  # Reduce whisper's own output
+        )
+        
+        stop_transcription_spinner.set()
+        transcription_spinner_thread.join()
+        
+    except Exception as e:
+        stop_transcription_spinner.set()
+        transcription_spinner_thread.join()
+        print(f"Error during transcription: {e}", file=sys.stderr)
+        raise
 
     end_time = time.time()
     duration = end_time - start_time
-    print(f"Transcription completed in {duration:.2f} seconds", file=sys.stderr)
+    
+    print(f"\n✓ Transcription completed in {duration:.2f} seconds", file=sys.stderr)
+    
+    if audio_duration > 0:
+        speed_ratio = audio_duration / duration
+        print(f"Processing speed: {speed_ratio:.1f}x realtime", file=sys.stderr)
 
     transcript = result["text"].strip()
+    
+    # Show transcript stats
+    word_count = len(transcript.split())
+    print(f"Generated transcript: {word_count} words", file=sys.stderr)
 
     # Write complete output (metadata + transcript) to stdout
     output = (
@@ -1115,6 +1204,49 @@ main() {
 
   debug "Whisper model to be used: $model"
 
+  # For YouTube URLs, check if transcript already exists
+  local youtube_id=""
+  local organized_transcript_path=""
+  if [ ! -f "$input" ]; then
+    # Extract YouTube ID for organized storage
+    local sanitized_url
+    sanitized_url=$(sanitize_youtube_url "$input")
+    youtube_id=$(get_youtube_id "$sanitized_url")
+    debug "YouTube ID extracted: $youtube_id"
+    
+    # Check if transcript already exists in organized structure
+    # First, try to determine series from existing structure or use a default
+    local series_dir=""
+    local project_root="$SCRIPT_DIR/.."
+    
+    # Look for existing transcript in any series directory
+    if [ -f "$project_root/data/transcripts/Livestream/${youtube_id}.txt" ]; then
+      echo "Transcript already exists: data/transcripts/Livestream/${youtube_id}.txt" >&2
+      cat "$project_root/data/transcripts/Livestream/${youtube_id}.txt"
+      exit 0
+    elif [ -f "$project_root/data/transcripts/GuestStream/${youtube_id}.txt" ]; then
+      echo "Transcript already exists: data/transcripts/GuestStream/${youtube_id}.txt" >&2
+      cat "$project_root/data/transcripts/GuestStream/${youtube_id}.txt"
+      exit 0
+    elif [ -f "$project_root/data/transcripts/ModelStream/${youtube_id}.txt" ]; then
+      echo "Transcript already exists: data/transcripts/ModelStream/${youtube_id}.txt" >&2
+      cat "$project_root/data/transcripts/ModelStream/${youtube_id}.txt"
+      exit 0
+    elif [ -f "$project_root/data/transcripts/MathStream/${youtube_id}.txt" ]; then
+      echo "Transcript already exists: data/transcripts/MathStream/${youtube_id}.txt" >&2
+      cat "$project_root/data/transcripts/MathStream/${youtube_id}.txt"
+      exit 0
+    elif [ -f "$project_root/data/transcripts/General/${youtube_id}.txt" ]; then
+      echo "Transcript already exists: data/transcripts/General/${youtube_id}.txt" >&2
+      cat "$project_root/data/transcripts/General/${youtube_id}.txt"
+      exit 0
+    fi
+    
+    # Set default organized transcript path (we'll determine series from metadata later)
+    organized_transcript_path="$project_root/data/transcripts/Livestream/${youtube_id}.txt"
+    debug "Will save transcript to: $organized_transcript_path"
+  fi
+
   # Create working directory safely
   debug "Creating working directory"
   WORK_DIR=$(create_safe_tempdir)
@@ -1143,6 +1275,25 @@ main() {
     debug "Starting transcription process"
     transcribe_audio "${WORK_DIR}/audio.mp3" "${WORK_DIR}/transcript.txt" "$model" "${WORK_DIR}/metadata.json"
     debug "Transcription process completed"
+    
+    # For YouTube URLs, save transcript in organized structure
+    if [ -n "$youtube_id" ] && [ -n "$organized_transcript_path" ]; then
+      # Create series directory if it doesn't exist
+      local series_dir
+      series_dir=$(dirname "$organized_transcript_path")
+      mkdir -p "$series_dir"
+      debug "Created series directory: $series_dir"
+      
+      # Copy transcript to organized location
+      cp "${WORK_DIR}/transcript.txt" "$organized_transcript_path"
+      echo "Transcript saved to organized location: $organized_transcript_path" >&2
+      
+      # Also output the transcript to stdout as before
+      cat "${WORK_DIR}/transcript.txt"
+    else
+      # For local files, just output to stdout as before
+      cat "${WORK_DIR}/transcript.txt"
+    fi
   fi
 }
 

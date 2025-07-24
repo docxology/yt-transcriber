@@ -1,0 +1,97 @@
+{
+  "whisper_settings": {
+    "default_model": "small",
+    "models": {
+      "base": {
+        "description": "Fastest, lower accuracy",
+        "use_case": "Quick testing or low-priority content",
+        "approximate_speed": "~32x realtime"
+      },
+      "small": {
+        "description": "Good balance of speed and accuracy",
+        "use_case": "Most content, recommended default",
+        "approximate_speed": "~16x realtime"
+      },
+      "medium": {
+        "description": "Better accuracy, slower",
+        "use_case": "Important content, technical discussions",
+        "approximate_speed": "~8x realtime"
+      },
+      "large": {
+        "description": "Best accuracy, much slower",
+        "use_case": "Critical content requiring high accuracy",
+        "approximate_speed": "~4x realtime"
+      },
+      "large-v2": {
+        "description": "Latest large model with improvements",
+        "use_case": "Critical content, latest improvements",
+        "approximate_speed": "~4x realtime"
+      }
+    }
+  },
+  "processing_settings": {
+    "max_parallel_jobs": 3,
+    "retry_attempts": 2,
+    "timeout_minutes": 30,
+    "cache_downloads": true,
+    "cleanup_temp_files": true,
+    "resume_on_failure": true
+  },
+  "output_settings": {
+    "include_metadata_header": true,
+    "include_timestamps": false,
+    "include_speaker_detection": false,
+    "output_formats": ["txt"],
+    "encoding": "utf-8",
+    "line_endings": "unix"
+  },
+  "quality_control": {
+    "min_audio_duration": 10,
+    "max_audio_duration": 14400,
+    "verify_duration": true,
+    "check_audio_quality": false,
+    "validate_transcript_length": true,
+    "min_transcript_words": 50
+  },
+  "metadata_extraction": {
+    "extract_video_info": true,
+    "extract_channel_info": true,
+    "extract_upload_date": true,
+    "extract_duration": true,
+    "extract_description": false,
+    "save_individual_metadata": true
+  },
+  "file_organization": {
+    "organize_by_series": true,
+    "sanitize_filenames": true,
+    "max_filename_length": 100,
+    "use_unique_names": true,
+    "create_series_directories": true
+  },
+  "logging": {
+    "log_level": "INFO",
+    "log_to_file": true,
+    "log_file": "cache/batch_progress.log",
+    "log_rotation": true,
+    "max_log_size_mb": 10
+  },
+  "notifications": {
+    "enable_notifications": false,
+    "notify_on_completion": false,
+    "notify_on_errors": true,
+    "notification_methods": []
+  },
+  "advanced": {
+    "custom_whisper_args": [],
+    "environment_variables": {
+      "PYTHONIOENCODING": "utf-8",
+      "WHISPER_CACHE": "~/.cache/whisper"
+    },
+    "post_processing_scripts": [],
+    "backup_settings": {
+      "create_backups": false,
+      "backup_location": "backup/",
+      "retention_days": 30
+    }
+  }
+} 

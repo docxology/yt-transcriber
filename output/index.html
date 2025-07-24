@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Inference Institute - Video Transcripts Index</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f7fa;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .search-section {
+            background: white;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .search-box {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .search-box:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .filters {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        
+        .filter-button {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-button:hover,
+        .filter-button.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .stat-card h3 {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        
+        .series-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .series-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .series-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        
+        .series-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        
+        .series-stats div {
+            margin: 0.25rem 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .transcripts-grid {
+            display: grid;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .transcript-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .transcript-card:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        
+        .card-header {
+            margin-bottom: 1rem;
+        }
+        
+        .card-header h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .card-meta {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .series-tag,
+        .date-tag {
+            background: #e1e5e9;
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .series-tag {
+            background: #667eea;
+            color: white;
+        }
+        
+        .youtube-link {
+            background: #ff0000;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.8rem;
+        }
+        
+        .youtube-link:hover {
+            background: #cc0000;
+        }
+        
+        .guests {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .content-preview {
+            color: #555;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .file-info {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+        
+        .file-path {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: #999;
+            background: #f8f9fa;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .filters {
+                flex-direction: column;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .series-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .file-info {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>Active Inference Institute</h1>
+            <p>Video Transcripts Archive</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="search-section">
+            <input type="text" class="search-box" placeholder="Search transcripts..." id="searchInput">
+            <div class="filters">
+                <button class="filter-button active" onclick="showAll()">All Series</button>
+                <button class="filter-button" onclick="clearSearch()">Clear Search</button>
+            </div>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <h3>2</h3>
+                <p>Total Transcripts</p>
+            </div>
+            <div class="stat-card">
+                <h3>2</h3>
+                <p>Video Series</p>
+            </div>
+            <div class="stat-card">
+                <h3>1,705</h3>
+                <p>Total Words</p>
+            </div>
+            <div class="stat-card">
+                <h3>2025</h3>
+                <p>Index Updated</p>
+            </div>
+        </div>
+        
+        <div class="series-grid" id="seriesGrid">
+            
+            <div class="series-card" onclick="filterBySeries('Livestream')">
+                <h3>Livestream</h3>
+                <div class="series-stats">
+                    <div><strong>1</strong> videos</div>
+                    <div><strong>2</strong> words</div>
+                    <div>From Unknown to Unknown</div>
+                </div>
+            </div>
+            
+            <div class="series-card" onclick="filterBySeries('Unknown')">
+                <h3>Unknown</h3>
+                <div class="series-stats">
+                    <div><strong>1</strong> videos</div>
+                    <div><strong>1,703</strong> words</div>
+                    <div>From Unknown to Unknown</div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="transcripts-grid" id="transcriptsGrid">
+            
+            <div class="transcript-card" data-series="Livestream" data-date="Unknown date">
+                <div class="card-header">
+                    <h3>test_transcript.txt</h3>
+                    <div class="card-meta">
+                        <span class="series-tag">Livestream</span>
+                        <span class="date-tag">Unknown date</span>
+                        
+                    </div>
+                </div>
+                <div class="card-content">
+                    
+                    <div class="content-preview">Test transcript</div>
+                    <div class="file-info">
+                        <span>2 words</span>
+                        <span>16 bytes</span>
+                        <span>Modified: 2025-07-24</span>
+                    </div>
+                    <div class="file-path">Livestream/test_transcript.txt</div>
+                </div>
+            </div>
+            
+            <div class="transcript-card" data-series="Unknown" data-date="Unknown date">
+                <div class="card-header">
+                    <h3>Worse Than the Hindenburg: The Crash of the USS Akron | A Short Documentary | Fascinating Horror</h3>
+                    <div class="card-meta">
+                        <span class="series-tag">Unknown</span>
+                        <span class="date-tag">Unknown date</span>
+                        
+                    </div>
+                </div>
+                <div class="card-content">
+                    
+                    <div class="content-preview">On the 4th of April 1933, one of the largest flying objects in the world, the airship the USS Akron, nosed its way slowly through fog off the coast of New Jersey. As it entered a turbulent current of air, it began to fall, dropping rapidly towards the ocean below. The captain ordered the ballast to be ejected. Tons of water ballasts sprayed into the air below the ship. The great dirigible stabilized, but only for a moment. At this point in time, as it hung there above the stormy surface of the A...</div>
+                    <div class="file-info">
+                        <span>1,703 words</span>
+                        <span>10,083 bytes</span>
+                        <span>Modified: 2025-07-24</span>
+                    </div>
+                    <div class="file-path">test_transcript.txt</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <script>
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const transcriptCards = document.querySelectorAll('.transcript-card');
+        const seriesGrid = document.getElementById('seriesGrid');
+        
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            
+            transcriptCards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+            
+            // Hide series grid when searching
+            if (searchTerm) {
+                seriesGrid.classList.add('hidden');
+            } else {
+                seriesGrid.classList.remove('hidden');
+            }
+        });
+        
+        // Filter by series
+        function filterBySeries(series) {
+            transcriptCards.forEach(card => {
+                const cardSeries = card.getAttribute('data-series');
+                if (cardSeries === series) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+            
+            seriesGrid.classList.add('hidden');
+            searchInput.value = '';
+        }
+        
+        // Show all transcripts
+        function showAll() {
+            transcriptCards.forEach(card => {
+                card.classList.remove('hidden');
+            });
+            
+            seriesGrid.classList.remove('hidden');
+            searchInput.value = '';
+        }
+        
+        // Clear search
+        function clearSearch() {
+            searchInput.value = '';
+            showAll();
+        }
+        
+        // Generate timestamp
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('YT-Transcriber Index loaded with 2 transcripts');
+        });
+    </script>
+</body>
+</html>
+        
