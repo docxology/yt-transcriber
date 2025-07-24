@@ -35,8 +35,13 @@
     "last_updated": "2025-07-24T15:20:23-07:00"
   },
   "B6Uqf_T-nec": {
-    "status": "processing",
+    "status": "completed",
     "transcript_path": "/home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_005.1.txt",
-    "last_updated": "2025-07-24T15:20:23-07:00"
+    "last_updated": "2025-07-24T15:29:59-07:00"
+  },
+  "V7yNq_KpHo8": {
+    "status": "processing",
+    "transcript_path": "/home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_005.2.txt",
+    "last_updated": "2025-07-24T15:29:59-07:00"
   }
 }
