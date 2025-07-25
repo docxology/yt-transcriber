@@ -1,0 +1,10 @@
+=== Video Metadata ===
+Title: Information flow in context-dependent hierarchical Bayesian inference
+Series: Livestream
+Number: #017.2
+Date: 3/16/2021
+Guests: 
+URL: https://youtu.be/zF-EUnA-di4
+Unique Name: Livestream #017.2
+Transcribed: 2025-07-25T09:17:04-07:00
+=== Transcript ===
