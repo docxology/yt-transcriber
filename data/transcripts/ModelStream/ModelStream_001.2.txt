@@ -1,0 +1,39 @@
+=== Video Metadata ===
+Title: Ryan Smith",A step-by-step tutorial on active inference and its application to empirical data
+Series: ModelStream
+Number: #001.2
+Date: 1/22/2021
+Guests: Christopher Whyte
+URL: https://youtu.be/bDJbEofbvyk
+Unique Name: ModelStream #001.2
+Transcribed: 2025-07-27T11:33:26-07:00
+=== Transcript ===
+yt-transcriber requires curl curl 8. but you have curl 7.81.0 (x86_64-pc-linux-gnu) libcurl/7.81.0 OpenSSL/3.0.2 zlib/1.2.11 brotli/1.0.9 zstd/1.4.8 libidn2/2.3.2 libpsl/0.21.0 (+libidn2/2.3.2) libssh/0.9.6/openssl/zlib nghttp2/1.43.0 librtmp/2.3 OpenLDAP/2.5.19; please upgrade curl (or take your chances if yours is greater)
+It may work, but expected results are less guaranteed. Allowing for now.
+Working directory: /tmp/tmp.UxOhtBajAn
+Fetching video metadata...
+Using cached audio from previous download
+Generating transcript using small model...
+
+=== System Information ===
+CPU Cores: 6
+CPU Threads: 12
+Memory: 62.5GB
+PyTorch version: 2.7.1+cu126
+PyTorch CUDA available: False
+MPS available: False
+MPS built: False
+
+Falling back to CPU only
+Model stored in: /home/trim/.cache/whisper
+Model size: 461.2MB
+Audio duration: 2:25:10
+
+Loading small model into CPU...
+Loading model... ⠋Loading model... ⠙Loading model... ⠹Loading model... ⠸Loading model... ⠼Loading model... ⠴Loading model... ⠦Loading model... ⠧Loading model... ⠋Loading model... ⠙Loading model... ⠹Loading model... ⠸Loading model... ⠼Loading model... ⠴Loading model... ⠦Loading model... ⠧Loading model... ⠋Loading model... ⠙Loading model... ⠹Loading model... ⠸Loading model... ⠼Loading model... ⠴Loading model... ⠦Loading model... ⠧Loading model... ⠋Loading model... ⠙Loading model... ⠹Loading model... ⠸Loading model... ⠼Loading model... ⠴Loading model... ⠦Loading model... ⠧Loading model... ⠋Loading model... ⠙Loading model... ⠹Loading model... ⠸Loading model... ⠼Loading model... ⠴Loading model... ⠦Loading model... ⠧Loading model... ⠋Loading model... ⠙Loading model... ⠹Loading model... ✓
+Model loaded successfully!
+
+Starting transcription...
+Estimated processing time: 9:40:40
+
+Transcribing audio... ⠋Transcribing audio... ⠙Transcribing audio... ⠹Transcribing audio... ⠸Transcribing audio... ⠼Transcribing audio... ⠴Transcribing audio... ⠦Transcribing audio... ⠧Transcribing audio... ⠋Transcribing audio... ⠙Transcribing audio... ⠹Transcribing audio... ⠸Transcribing audio... ⠼Transcribing audio... ⠴Transcribing audio... ⠦Transcribing audio... ⠧Transcribing audio... ⠋Transcribing audio... ⠙Transcribing audio... ⠹Transcribing audio... ⠸Transcribing audio... ⠼Transcribing audio... ⠴Transcribing audio... ⠦Transcribing audio... ⠧Transcribing audio... ⠋Transcribing audio... ⠙Transcribing audio... ⠹Transcribing audio... ⠸Transcribing audio... ⠼Transcribing audio... ⠴Transcribing audio... ⠦Transcribing audio... ⠧Transcribing audio... ⠋Transcribing audio... ⠙Transcribing audio... ⠹Transcribing audio... ⠸Transcribing audio... ⠼Transcribing audio... ⠴Transcribing audio... ⠦Transcribing audio... ⠧Transcribing audio... ⠋Transcribing audio... ⠙Transcribing audio... ⠹Transcribing audio... ⠸Transcribing audio... ⠼Transcribing audio... ⠴Transcribing audio... ⠦Transcribing audio... ⠧Transcribing audio... ⠋Transcribing audio... ⠙Transcribing audio... ⠹Transcribing audio... ⠸Transcribing audio... ⠼Transcribing audio... ⠴Transcribing audio... ⠦Transcribing audio... ⠧Transcribing audio... ⠋Transcribing audio... ⠙Transcribing audio... ⠹Transcribing audio... ⠸Transcribing audio... ⠼Transcribing audio... ⠴Transcribing audio... ⠦Transcribing audio... ⠧Transcribing audio... ⠋Transcribing audio... ⠙Transcribing audio... ⠹Transcribing audio... ⠸Transcribing audio... ⠼Transcribing audio... ⠴Transcribing audio... ⠦Transcribing audio... ⠧Transcribing audio... ⠋Transcribing audio... ⠙Transcribing audio... ⠹Transcribing audio... ⠸Transcribing audio... ⠼Transcribing audio... ⠴Transcribing audio... ⠦Transcribing audio... ⠧Transcribing audio... ⠋Transcribing audio... ⠙Transcribing audio... ⠹Transcribing audio... ⠸Transcribing audio... ⠼Tran
