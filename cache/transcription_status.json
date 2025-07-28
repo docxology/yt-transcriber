@@ -910,8 +910,18 @@
     "last_updated": "2025-07-28T05:17:55-07:00"
   },
   "_zW1BrLwACY": {
-    "status": "processing",
+    "status": "completed",
     "transcript_path": "/home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_058.0.txt",
-    "last_updated": "2025-07-28T05:18:00-07:00"
+    "last_updated": "2025-07-28T05:31:18-07:00"
+  },
+  "OPapscuD05s": {
+    "status": "completed",
+    "transcript_path": "/home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_058.1.txt",
+    "last_updated": "2025-07-28T05:45:04-07:00"
+  },
+  "ee6_mNOfP38": {
+    "status": "processing",
+    "transcript_path": "/home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_058.2.txt",
+    "last_updated": "2025-07-28T05:45:05-07:00"
   }
 }
