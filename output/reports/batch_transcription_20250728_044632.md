@@ -1,0 +1,193 @@
+# Batch Transcription Report
+
+Generated: 2025-07-28T04:46:32-07:00
+
+## Summary
+
+- Total processed: 179
+- Successfully completed: 80
+- Errors: 97
+- Success rate: 44%
+
+## Completed Transcriptions
+
+- C94WDXAe4EE -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_001.1.txt
+- 601-lt_8eVE -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_002.1.txt
+- mz7L4GD5g-E -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_003.1.txt
+- ijuxHfPDd3U -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_003.2.txt
+- Y6qx6C1tmjs -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_004.1.txt
+- SAc1F1AWRAs -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_004.2.txt
+- g2n47dPUyNY -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_005.0.txt
+- B6Uqf_T-nec -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_005.1.txt
+- V7yNq_KpHo8 -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_005.2.txt
+- jHWCQ1dpoK0 -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_006.0.txt
+- 9IIsoNMRSb8 -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_006.1.txt
+- y4tljwMAWho -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_006.2.txt
+- 7cJ8dmO3qlY -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_007.0.txt
+- 72g62XJ-SpA -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_007.1.txt
+- qf4S9bK5VKQ -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_007.2.txt
+- zG0qP7un91k -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_008.1.txt
+- kXw1CPRkJCw -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_008.0.txt
+- gv8RuRiZTQA -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_008.2.txt
+- XnOfWFnN2iI -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_009.0.txt
+- pSWRTkmR8eg -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_009.1.txt
+- XYRKlh2c-ps -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_009.2.txt
+- 5DB77oxbABo -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_010.0.txt
+- 3Sg1sAlgQaM -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_010.1.txt
+- IGKUS1W25rY -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_010.2.txt
+- HSu9sDa6-BQ -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_011.0.txt
+- xCqavxpiw44 -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_011.1.txt
+- gx9yAF607ko -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_011.2.txt
+- qGQljJRCB0g -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_012.0.txt
+- 8dPps0qLrp4 -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_013.0.txt
+- QG2gOoX4XdA -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_013.1.txt
+- PyyHd4P8dbs -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_013.2.txt
+- Uheml5XRCWk -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_014.0.txt
+- gQQyd8Hd3AA -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_014.1.txt
+- 4Mu8lDqzBog -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_014.2.txt
+- 6Z-6p1XPn8A -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_015.0.txt
+- 5VPKmVoRvRY -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_015.1.txt
+- iJp_Tm6Ej68 -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_015.2.txt
+- i13aBAWuJxk -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_016.0.txt
+- P6LiF4gTfUo -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_016.1.txt
+- 93lAa-xEmHY -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_016.2.txt
+- o7sJ-5vFJGk -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_017.0.txt
+- ldg2An-tEIE -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_017.1.txt
+- zF-EUnA-di4 -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_017.2.txt
+- 1z1MHiHiYuM -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_018.0.txt
+- Y8Y4f-SEcsI -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_018.2.txt
+- 1FbOzAJ8CRQ -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_019.0.txt
+- SMQvRspIzpQ -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_019.1.txt
+- z9ZCjd2rqGY -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_021.01.txt
+- z_hArARMQ20 -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_019.2.txt
+- MlvyehPDQXg -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_021.02.txt
+- 1VTviUyntt8 -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_020.0.txt
+- idO34jucRIw -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_021.03.txt
+- szCSh8pVEa4 -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_020.1.txt
+- PakWPvu07OM -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_021.04.txt
+- q3qBepJf3vA -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_020.2.txt
+- mbEqoCV16q4 -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_021.1.txt
+- i5WwQ4WXGNo -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_021.2.txt
+- bNB-7nQDdwM -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_022.0.txt
+- v60cQUiu1NE -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_022.1.txt
+- wiUDw6vk644 -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_022.2.txt
+- 8JrGE02KzuY -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_023.0.txt
+- PgzQrHSu1CU -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_023.1.txt
+- bjYUbKlfHUo -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_023.2.txt
+- Fx7xWUU1MlI -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_024.0.txt
+- a089q9RaI14 -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_024.1.txt
+- lqxl8w_JGek -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_024.2.txt
+- 4JfGs_m5QHo -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_025.0.txt
+- v0oJvbVuAF0 -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_025.1.txt
+- XSYxOt8CRDI -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_025.2.txt
+- Oq2oM55OKzE -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_027.1.txt
+- H5AolqFl2Nw -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/ModelStream/ModelStream_001.1.txt
+- bDJbEofbvyk -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/ModelStream/ModelStream_001.3.txt
+- QRGaGmT-VFM -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/ModelStream/ModelStream_001.4.txt
+- HZoZtiSwMvA -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/GuestStream/GuestStream_001.1.txt
+- jaw0QmAvAQU -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Roundtable/Roundtable_2021.1.txt
+- 5oSqT8a6-dQ -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/GuestStream/GuestStream_002.1.txt
+- 1HKjMeEGLyY -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/MathStream/MathStream_001.1.txt
+- YS2X_oW6NrM -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/GuestStream/GuestStream_003.1.txt
+- qEkW4YsN5PY -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/GuestStream/GuestStream_004.1.txt
+- UDm0lriAIJw -> /home/trim/Documents/GitHub/yt-transcriber/data/transcripts/ModelStream/ModelStream_002.1.txt
+
+## Failed Transcriptions
+
+- eZlG_J7sPj4
+- 1rHz3Ir5v9c
+- SH2v6joMD4k
+- qw0SkhnHWWI
+- MWWV3U-Llk4
+- sjdjRJMRVfw
+- eX5jt3HP27c
+- sEyNwzUuiII
+- SNbfAkOokAI
+- Z0fpX5Lpp0Y
+- Z4S5JVoeGBw
+- N3WUpVH8-D8
+- 5H164LqEwiA
+- VXLNOfkH5Rg
+- imPNfqsHbjI
+- 4XR8mIw9gcc
+- GYJ0UC6ykxk
+- 7_JLMK3agpA
+- wqoeyrW2Yqg
+- ElKVfCJrIHM
+- iIfDvVRgsjQ
+- LQuXltGQ8Xk
+- S5nXqPysU3I
+- Ga8EZMGO460
+- JtXvkawQ1rY
+- vkZ_vnN0--Y
+- -Y4OVfbxlMM
+- 4hTT6fUTMM8
+- e-Ck8sxCME0
+- RoMCBXy-7E0
+- sQWSkDQvnqk
+- cOo4juE_zcI
+- RQb6wLWoYok
+- lwVIUz7O0jg
+- G-S-kq42evw
+- YjTD_Ifw_qA
+- AUXWQzpr2x8
+- bBE2w_BpuAw
+- INRaCBikpso
+- hW9IiOujS1E
+- hGoZierAPbU
+- m8gUev5aVFs
+- uePR4DQv0yI
+- odkks5F9ZMM
+- Zvwt-98kcFM
+- zVvTAnRwigQ
+- bUr87RcOQUQ
+- j4dt5a1f30g
+- eVbWeWEX9dA
+- Hvr-RgWZ7p4
+- 3SjbReGPZME
+- mjL3cGYEMNg
+- _JCaic5Cxms
+- YKn2njZ_ICg
+- eUBT37LMlLo
+- NHfGuwoCXI8
+- Lo95GakwV5w
+- GR07coJNPUE
+- GHcpJ_bMuu4
+- chpbMBgDR84
+- 6WP7mY13lzc
+- azwqMjgfY8Y
+- 0OQx04x8-zA
+- yC-hgjv3ANk
+- R4C_DgP_khY
+- KbyPFR7xUDo
+- aEYQCmFl1Bw
+- -qZYxSbJ38E
+- 9zq1JUnN_eg
+- NkJKl_yF274
+- Cgo-0UU848M
+- e_JGrt4jbhE
+- ozuzf6Pvlyg
+- VsOqIxNYpPQ
+- H6rjjPZE5hs
+- RB2axUYnE8I
+- Dl6v-3COgCo
+- UUQIVqcI-yw
+- SwUzTlGNI2A
+- _MH7E58zKxY
+- 4VApGjFESlE
+- IXJn-BMsKVw
+- cLe-rBtRXiQ
+- O4u8PRzk1vY
+- X0Q6JLDYWJo
+- yNubOHOJeIQ
+- y1vtKYzVUaY
+- epoHxFdzFkw
+- 9MQQKaKEXs0
+- V0l9fOJgbtc
+- S5-jXzhiG18
+- c0_Vf5_qiWk
+- igY9iyowesc
+- skcKoCcAQJI
+- JPsdk7pVa1I
+- 7_YNInrALU8
+- tOFA7FODn8w

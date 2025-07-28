@@ -136,7 +136,17 @@ transcript_exists() {
 # Function to extract video ID from YouTube URL
 extract_video_id() {
     local url="$1"
-    if [[ "$url" =~ v=([a-zA-Z0-9_-]+) ]] || [[ "$url" =~ youtu\.be/([a-zA-Z0-9_-]+) ]]; then
+    # Handle standard YouTube URLs with v= parameter
+    if [[ "$url" =~ v=([a-zA-Z0-9_-]+) ]]; then
+        echo "${BASH_REMATCH[1]}"
+    # Handle youtu.be short URLs
+    elif [[ "$url" =~ youtu\.be/([a-zA-Z0-9_-]+) ]]; then
+        echo "${BASH_REMATCH[1]}"
+    # Handle live YouTube URLs
+    elif [[ "$url" =~ youtube\.com/live/([a-zA-Z0-9_-]+) ]]; then
+        echo "${BASH_REMATCH[1]}"
+    # Handle watch URLs with live parameter
+    elif [[ "$url" =~ youtube\.com/watch\?.*v=([a-zA-Z0-9_-]+) ]]; then
         echo "${BASH_REMATCH[1]}"
     else
         echo ""
