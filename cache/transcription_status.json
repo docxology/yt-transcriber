@@ -157,47 +157,47 @@
   "Uheml5XRCWk": {
     "status": "completed",
     "transcript_path": "/home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_014.0.txt",
-    "last_updated": "2025-07-27T11:33:25-07:00"
+    "last_updated": "2025-07-27T18:04:35-07:00"
   },
   "gQQyd8Hd3AA": {
     "status": "completed",
     "transcript_path": "/home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_014.1.txt",
-    "last_updated": "2025-07-27T11:33:25-07:00"
+    "last_updated": "2025-07-27T18:04:36-07:00"
   },
   "4Mu8lDqzBog": {
     "status": "completed",
     "transcript_path": "/home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_014.2.txt",
-    "last_updated": "2025-07-27T12:14:32-07:00"
+    "last_updated": "2025-07-27T18:04:37-07:00"
   },
   "6Z-6p1XPn8A": {
     "status": "completed",
     "transcript_path": "/home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_015.0.txt",
-    "last_updated": "2025-07-27T12:14:32-07:00"
+    "last_updated": "2025-07-27T18:04:38-07:00"
   },
   "5VPKmVoRvRY": {
     "status": "completed",
     "transcript_path": "/home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_015.1.txt",
-    "last_updated": "2025-07-27T12:14:34-07:00"
+    "last_updated": "2025-07-27T18:04:38-07:00"
   },
   "iJp_Tm6Ej68": {
     "status": "completed",
     "transcript_path": "/home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_015.2.txt",
-    "last_updated": "2025-07-27T12:58:44-07:00"
+    "last_updated": "2025-07-27T18:04:39-07:00"
   },
   "i13aBAWuJxk": {
     "status": "completed",
     "transcript_path": "/home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_016.0.txt",
-    "last_updated": "2025-07-27T12:58:45-07:00"
+    "last_updated": "2025-07-27T18:04:39-07:00"
   },
   "P6LiF4gTfUo": {
     "status": "completed",
     "transcript_path": "/home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_016.1.txt",
-    "last_updated": "2025-07-27T12:58:45-07:00"
+    "last_updated": "2025-07-27T18:04:41-07:00"
   },
   "93lAa-xEmHY": {
     "status": "completed",
     "transcript_path": "/home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Livestream/Livestream_016.2.txt",
-    "last_updated": "2025-07-27T12:58:46-07:00"
+    "last_updated": "2025-07-27T18:04:41-07:00"
   },
   "o7sJ-5vFJGk": {
     "status": "completed",
@@ -510,29 +510,29 @@
     "last_updated": "2025-07-27T13:36:58-07:00"
   },
   "H5AolqFl2Nw": {
-    "status": "processing",
+    "status": "completed",
     "transcript_path": "/home/trim/Documents/GitHub/yt-transcriber/data/transcripts/ModelStream/ModelStream_001.1.txt",
-    "last_updated": "2025-07-27T17:07:57-07:00"
+    "last_updated": "2025-07-27T18:04:35-07:00"
   },
   "bDJbEofbvyk": {
     "status": "completed",
     "transcript_path": "/home/trim/Documents/GitHub/yt-transcriber/data/transcripts/ModelStream/ModelStream_001.3.txt",
-    "last_updated": "2025-07-27T12:14:33-07:00"
+    "last_updated": "2025-07-27T18:04:38-07:00"
   },
   "QRGaGmT-VFM": {
     "status": "completed",
     "transcript_path": "/home/trim/Documents/GitHub/yt-transcriber/data/transcripts/ModelStream/ModelStream_001.4.txt",
-    "last_updated": "2025-07-27T12:58:43-07:00"
+    "last_updated": "2025-07-27T18:04:39-07:00"
   },
   "HZoZtiSwMvA": {
     "status": "completed",
     "transcript_path": "/home/trim/Documents/GitHub/yt-transcriber/data/transcripts/GuestStream/GuestStream_001.1.txt",
-    "last_updated": "2025-07-27T13:19:18-07:00"
+    "last_updated": "2025-07-27T18:04:41-07:00"
   },
   "jaw0QmAvAQU": {
-    "status": "error",
+    "status": "processing",
     "transcript_path": "/home/trim/Documents/GitHub/yt-transcriber/data/transcripts/Roundtable/Roundtable_2021.1.txt",
-    "last_updated": "2025-07-27T13:19:33-07:00"
+    "last_updated": "2025-07-27T18:04:42-07:00"
   },
   "5oSqT8a6-dQ": {
     "status": "completed",
